@@ -17,6 +17,7 @@
     "@types/node": "^26.0.0",
     "@types/react": "^19.2.17",
     "@types/sass": "^1.43.1",
+    "cross-env": "^10.1.0",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
