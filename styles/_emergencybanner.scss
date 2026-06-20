@@ -1,0 +1,39 @@
+@use './variables';
+
+.emergency {
+    background: variables.$amber;
+    color: variables.$ink;
+    padding: 18px 0;
+
+    .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .emergency-text {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 600;
+
+        span.small {
+            display: block;
+            font-family: variables.$font-mono;
+            font-weight: 500;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            opacity: 0.85;
+        }
+    }
+
+    .btn-primary {
+        background: variables.$ink;
+
+        &:hover {
+            background: #1c3236;
+        }
+    }
+}

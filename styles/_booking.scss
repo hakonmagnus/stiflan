@@ -1,0 +1,94 @@
+@use './variables';
+
+.booking {
+    background: variables.$ink;
+    color: variables.$text-light;
+
+    .eyebrow {
+        color: variables.$copper-light;
+    }
+
+    h2 {
+        margin-top: 14px;
+        font-size: clamp(1.7rem,3vw,2.3rem);
+    }
+
+    p {
+        opacity: 0.8;
+        margin-top: 14px;
+        max-width: 420px;
+    }
+
+    .booking-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+    }
+
+    .booking-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        label {
+            font-size: 0.85rem;
+            font-family: variables.$font-mono;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            opacity: 0.75;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border-radius: 8px;
+            border: 1px solid variables.$line-dark;
+            background: rgba(255, 255, 255, 0.04);
+            color: variables.$text-light;
+            font-family: variables.$font-body;
+            font-size: 0.97rem;
+
+            &::placeholder {
+                color: rgba(237,234,224,0.45);
+            }
+        }
+
+        textarea {
+            min-height: 96px;
+            resize: vertical;
+        }
+
+        button {
+            background: variables.$copper;
+            color: #fff;
+            border: none;
+            padding: 14px 24px;
+            border-radius: variables.$radius-pill;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 4px;
+            transition: background 0.2s ease;
+
+            &:hover {
+                background: variables.$copper-light;
+            }
+        }
+    }
+
+    .booking-note {
+        font-size: 0.82rem;
+        opacity: 0.6;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 860px) {
+    .booking {
+        .booking-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}

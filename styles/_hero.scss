@@ -1,0 +1,85 @@
+@use './variables';
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(165deg,variables.$ink 0%,variables.$teal 100%);
+    color: variables.$text-light;
+    padding: 88px 0 96px;
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 48px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        font-size: clamp(2.4rem,4.6vw,4.2rem);
+        font-weight: 700;
+        line-height: 1.04;
+        margin: 18px 0 22px;
+
+        .accent {
+            color: variables.$copper-light;
+        }
+    }
+
+    p.lead {
+        font-size: 1.15rem;
+        max-width: 520px;
+        color: variables.$text-light;
+        opacity: 0.88;
+        margin-bottom: 34px;
+    }
+
+    .eyebrow {
+        color: variables.$copper-light;
+    }
+
+    .trust-strip {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+        border-top: 1px solid variables.$line-dark;
+        padding-top: 24px;
+
+        .trust-item {
+            .num {
+                font-family: variables.$font-mono;
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: variables.$copper-light;
+            }
+
+            .label {
+                font-size: 0.78rem;
+                opacity: 0.75;
+                max-width: 140px;
+            }
+        }
+    }
+
+    .hero-schematic {
+        position: relative;
+        height: 380px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.55;
+        }
+    }
+    
+    @media (max-width: 900px) {
+        .hero-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-schematic {
+            display: none;
+        }
+    }
+}

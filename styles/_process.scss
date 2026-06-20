@@ -1,0 +1,45 @@
+@use './variables';
+
+.process-list {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 32px;
+
+    .process-step {
+        position: relative;
+        padding-top: 8px;
+
+        .step-number {
+            font-family: variables.$font-mono;
+            font-size: 0.85rem;
+            color: variables.$copper-light;
+            border: 1px solid variables.$line-dark;
+            border-radius: variables.$radius-pill;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            opacity: 0.82;
+            font-size: 0.97rem;
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .process-list {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
