@@ -78,9 +78,14 @@
         }
     }
 
+    .booking-error {
+        color: variables.$copper;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
     .booking-note {
-        font-size: 0.82rem;
-        opacity: 0.6;
+        font-size: 1rem;
         margin-top: 10px;
     }
 }
