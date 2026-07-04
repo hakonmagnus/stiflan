@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
                         <a href="tel:+3548600938" className="footer-logo-link" aria-label="Hringja í 860-0938">
                             <img className="footer-logo-img" src="/images/logo.png" alt="Stíflu og myndavélaþjónustan — sími 860-0938" />
                         </a>
-                        <p>Stífluhreinsun, myndavélaskoðun og lagnaviðhald á höfuðborgarsvæðinu — því allt losnar að lokum.</p>
+                        <p>Stífluhreinsun, myndavélaskoðun og lagnaviðhald á höfuðborgarsvæðinu.</p>
                     </div>
                     <div>
                         <h4>Þjónusta</h4>

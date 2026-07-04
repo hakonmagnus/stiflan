@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta name="description" content="tíflu og myndavélaþjónustan sér um stífluhreinsun, myndavélaskoðun, pípuhreinsun og lagnaviðhald á höfuðborgarsvæðinu. Hringdu núna — við svörum allan sólarhringinn." />
+        <meta name="description" content="Stíflu og myndavélaþjónustan sér um stífluhreinsun, myndavélaskoðun, pípuhreinsun og lagnaviðhald á höfuðborgarsvæðinu. Hringdu núna — við svörum allan sólarhringinn." />
         <meta property="og:title" content="Stíflu og myndavélaþjónustan — Stíflur, Myndarnir og Lagnahreinsun" />
         <meta property="og:description" content="Stífluhreinsun, myndavélaskoðun og lagnaviðhald á höfuðborgarsvæðinu. Sama dags þjónusta." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

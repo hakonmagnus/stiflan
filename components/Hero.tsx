@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
                 <div>
                     <span className="eyebrow">Stífluhreinsun &amp; myndavélaskoðun &middot; Höfuðborgarsvæðið</span>
                     <h1>Stíflur, Myndanir og <span className="accent">Lagnahreinsun.</span></h1>
-                    <p className="lead">Hröð og fagleg stífluhreinsun og myndavélaskoðun fyrir heimili, húsfélög og fyrirtæki á höfuðborgarsvæðinu — sama dags þjónusta, allan sólarhringinn þegar á reynir.</p>
+                    <p className="lead">Hröð og fagleg þjónusta fyrir heimili, húsfélög, fyrirtæki og stofnanir á höfuðborgarsvæðinu - Þjónusta samdægurs, allann sólarhringinn!</p>
                     <div className="hero-ctas">
                         <a className="btn-primary" href="tel:+3548600938">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
