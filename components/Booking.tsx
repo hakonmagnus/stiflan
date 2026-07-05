@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 
-const EMAILJS_SERVICE_ID = '';
-const EMAILJS_TEMPLATE_ID = '';
-const EMAILJS_PUBLIC_KEY = '';
+const EMAILJS_SERVICE_ID = 'service_f4y1134';
+const EMAILJS_TEMPLATE_ID = 'template_tcvc3xl';
+const EMAILJS_PUBLIC_KEY = 'bm6Uv4UrRpPLVVS-t';
 
 const Booking: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
