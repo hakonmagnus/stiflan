@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 
+const PUBLIC_HOSTNAME = process.env.NEXT_PUBLIC_HOSTNAME || "";
+
 const Header: React.FC = () => {
     useEffect(() => {
         const handleScroll = () => {
@@ -22,14 +24,13 @@ const Header: React.FC = () => {
     return (
         <header id="header">
             <div className="header-inner">
-                <a href="#hero" className="logo">
-                    <img className="logo-icon" src="/images/logo_small.png" alt="Stíflu og myndavélaþjónustan" />
-                    <span className="word"><span className="line1">Stíflu og</span><span className="line2">myndavélaþjónustan</span></span>
+                <a href={PUBLIC_HOSTNAME} className="logo">
+                    <img className="logo-icon" src={`${PUBLIC_HOSTNAME}/images/stiflan-logo-transp.png`} alt="Stíflu og myndavélaþjónustan" />
                 </a>
                 <nav className="main-nav">
-                    <a href="#services">Þjónusta</a>
-                    <a href="#process">Ferlið</a>
-                    <a href="#booking">Hafa samband</a>
+                    <a href={`${PUBLIC_HOSTNAME}#services`}>Þjónusta</a>
+                    <a href={`${PUBLIC_HOSTNAME}#process`}>Ferlið</a>
+                    <a href={`${PUBLIC_HOSTNAME}#booking`}>Hafa samband</a>
                 </nav>
                 <div className="header-actions">
                     <a className="call-btn" href="tel:+3548600938">
@@ -42,9 +43,9 @@ const Header: React.FC = () => {
                 </div>
             </div>
             <div className="mobile-panel" id="mobilePanel">
-                <a href="#services">Þjónusta</a>
-                <a href="#process">Ferlið</a>
-                <a href="#booking">Hafa samband</a>
+                <a href={`${PUBLIC_HOSTNAME}#services`}>Þjónusta</a>
+                <a href={`${PUBLIC_HOSTNAME}#process`}>Ferlið</a>
+                <a href={`${PUBLIC_HOSTNAME}#booking`}>Hafa samband</a>
                 <a href="mailto:stiflan@stiflan.is">stiflan@stiflan.is</a>
             </div>
         </header>

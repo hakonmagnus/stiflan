@@ -1,5 +1,7 @@
 import React from "react";
 
+const PUBLIC_HOSTNAME = process.env.NEXT_PUBLIC_HOSTNAME || "/";
+
 const Hero: React.FC = () => {
     return (
         <section className="hero" id="hero">
@@ -7,13 +9,13 @@ const Hero: React.FC = () => {
                 <div>
                     <span className="eyebrow">Stífluhreinsun &amp; myndavélaskoðun &middot; Höfuðborgarsvæðið</span>
                     <h1>Stíflur, Myndanir og <span className="accent">Lagnahreinsun.</span></h1>
-                    <p className="lead">Hröð og fagleg þjónusta fyrir heimili, húsfélög, fyrirtæki og stofnanir á höfuðborgarsvæðinu - Þjónusta samdægurs, allann sólarhringinn!</p>
+                    <p className="lead">Hröð og fagleg þjónusta fyrir heimili, húsfélög, fyrirtæki og stofnanir á höfuðborgarsvæðinu - Þjónusta samdægurs, allan sólarhringinn!</p>
                     <div className="hero-ctas">
                         <a className="btn-primary" href="tel:+3548600938">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
                             Hringja núna
                         </a>
-                        <a className="btn-secondary" href="#services">Skoða þjónustu</a>
+                        <a className="btn-secondary" href={`${PUBLIC_HOSTNAME}#services`}>Skoða þjónustu</a>
                     </div>
                     <div className="trust-strip">
                         <div className="trust-item"><div className="num">24/7</div><div className="label">Neyðarþjónusta allan sólarhringinn</div></div>
