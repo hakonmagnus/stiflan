@@ -1,0 +1,49 @@
+@use './variables';
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .faq-item {
+        background: variables.$card;
+        border-radius: variables.$radius-card;
+        border: 1px solid variables.$line;
+        padding: 4px 26px;
+
+        summary {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 0;
+            font-weight: 600;
+            font-size: 1.02rem;
+            cursor: pointer;
+
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            &::after {
+                content: '+';
+                flex-shrink: 0;
+                font-family: variables.$font-mono;
+                font-size: 1.2rem;
+                color: variables.$copper;
+                transition: transform 0.2s ease;
+            }
+        }
+
+        p {
+            margin: 0 0 22px;
+            font-size: 0.97rem;
+            opacity: 0.8;
+        }
+
+        &[open] summary::after {
+            transform: rotate(45deg);
+        }
+    }
+}

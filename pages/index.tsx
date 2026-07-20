@@ -4,8 +4,11 @@ import Hero from "../components/Hero";
 import EmergencyBanner from "../components/EmergencyBanner";
 import Services from "../components/Services";
 import Process from "../components/Process";
+import FAQ from "../components/FAQ";
 import FinalCTA from "../components/FinalCTA";
 import Booking from "../components/Booking";
+import { pagesMeta } from "../content/site-content";
+import { schemasByPage } from "../content/schema";
 
 const IndexPage: React.FC = () => {
     useEffect(() => {
@@ -24,11 +27,12 @@ const IndexPage: React.FC = () => {
     }, []);
 
     return (
-        <Layout title="Stíflu og myndavélaþjónustan — Stífluhreinsun og myndavélaskoðun lagna á höfuðborgarsvæðinu">
+        <Layout meta={pagesMeta.home} schemas={schemasByPage.home}>
             <Hero />
             <EmergencyBanner />
             <Services />
             <Process />
+            <FAQ />
             <FinalCTA />
             <Booking />
         </Layout>

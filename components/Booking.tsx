@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import { strings } from "../content/site-content";
 
 const EMAILJS_SERVICE_ID = 'service_f4y1134';
 const EMAILJS_TEMPLATE_ID = 'template_tcvc3xl';
@@ -16,10 +17,10 @@ const Booking: React.FC = () => {
     const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        const emailHtml = `<h2>Fyrirspurn frá ${name}</h2>
-<p><strong>Nafn:</strong> ${name}</p>
-<p><strong>Sími:</strong> ${phone}</p>
-<p><strong>Lýsing á vandamáli:</strong></p>
+        const emailHtml = `<h2>${strings.booking.emailSubjectPrefix} ${name}</h2>
+<p><strong>${strings.booking.emailNameLabel}</strong> ${name}</p>
+<p><strong>${strings.booking.emailPhoneLabel}</strong> ${phone}</p>
+<p><strong>${strings.booking.emailMessageLabel}</strong></p>
 <p>${msg}</p>`;
 
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
@@ -33,7 +34,7 @@ const Booking: React.FC = () => {
         })
         .catch((error) => {
             console.error("Error sending email:", error);
-            setError(`Villa kom upp við að senda fyrirspurnina: ${error?.text || error?.message || error}. Vinsamlegast reyndu aftur síðar.`);
+            setError(`${strings.booking.errorPrefix}: ${error?.text || error?.message || error}. ${strings.booking.errorSuffix}`);
         });
     };
 
@@ -41,31 +42,31 @@ const Booking: React.FC = () => {
         <section id="booking" className="booking">
             <div className="wrap booking-grid">
                 <div className="reveal">
-                    <span className="eyebrow">Hafa samband</span>
-                    <h2>Lýstu vandanum, við hringjum til baka.</h2>
-                    <p>Ekkert bráðatilfelli? Sendu okkur línu og við finnum tíma sem hentar — venjulega svarað innan dags.</p>
+                    <span className="eyebrow">{strings.booking.eyebrow}</span>
+                    <h2>{strings.booking.heading}</h2>
+                    <p>{strings.booking.intro}</p>
                 </div>
                 <form className="booking-form reveal" id="bookingForm" onSubmit={handleSubmit}>
                     {!hasSubmitted && <>
                         <div>
-                            <label htmlFor="bf-name">Nafn</label>
-                            <input type="text" id="bf-name" name="bf-name" placeholder="Fullt nafn" value={name} onChange={(e) => setName(e.target.value)} required />
+                            <label htmlFor="bf-name">{strings.booking.labels.name}</label>
+                            <input type="text" id="bf-name" name="bf-name" placeholder={strings.booking.placeholders.name} value={name} onChange={(e) => setName(e.target.value)} required />
                         </div>
                         <div>
-                            <label htmlFor="bf-email">Netfang</label>
-                            <input type="email" id="bf-email" name="bf-email" placeholder="Netfang" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                            <label htmlFor="bf-email">{strings.booking.labels.email}</label>
+                            <input type="email" id="bf-email" name="bf-email" placeholder={strings.booking.placeholders.email} value={email} onChange={(e) => setEmail(e.target.value)} required />
                         </div>
                         <div>
-                            <label htmlFor="bf-phone">Sími</label>
-                            <input type="tel" id="bf-phone" name="bf-phone" placeholder="Símanúmer" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                            <label htmlFor="bf-phone">{strings.booking.labels.phone}</label>
+                            <input type="tel" id="bf-phone" name="bf-phone" placeholder={strings.booking.placeholders.phone} value={phone} onChange={(e) => setPhone(e.target.value)} required />
                         </div>
                         <div>
-                            <label htmlFor="bf-msg">Lýsing á vandamáli</label>
-                            <textarea id="bf-msg" name="bf-msg" placeholder="Lýstu vandanum" value={msg} onChange={(e) => setMsg(e.target.value)} required></textarea>
+                            <label htmlFor="bf-msg">{strings.booking.labels.message}</label>
+                            <textarea id="bf-msg" name="bf-msg" placeholder={strings.booking.placeholders.message} value={msg} onChange={(e) => setMsg(e.target.value)} required></textarea>
                         </div>
-                        <button type="submit">Senda fyrirspurn</button>
+                        <button type="submit">{strings.booking.submitButton}</button>
                     </>}
-                    {hasSubmitted && <p className="booking-note">Fyrirspurnin hefur verið send. Við munum hafa samband við þig sem fyrst.</p>}
+                    {hasSubmitted && <p className="booking-note">{strings.booking.successMessage}</p>}
                     {error && <p className="booking-error">{error}</p>}
                 </form>
             </div>

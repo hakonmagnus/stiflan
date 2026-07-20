@@ -1,24 +1,23 @@
 import React from "react";
-
-const PUBLIC_HOSTNAME = process.env.NEXT_PUBLIC_HOSTNAME || "/";
+import { strings, business, PUBLIC_HOSTNAME } from "../content/site-content";
 
 const Hero: React.FC = () => {
     return (
         <section className="hero" id="hero">
             <div className="wrap hero-grid">
                 <div>
-                    <span className="eyebrow">Stífluhreinsun &amp; myndavélaskoðun &middot; Höfuðborgarsvæðið</span>
-                    <h1>Stíflur, Myndanir og <span className="accent">Lagnahreinsun.</span></h1>
-                    <p className="lead">Hröð og fagleg þjónusta fyrir heimili, húsfélög, fyrirtæki og stofnanir á höfuðborgarsvæðinu - Þjónusta samdægurs, allan sólarhringinn!</p>
+                    <span className="eyebrow">{strings.hero.eyebrow}</span>
+                    <h1>{strings.hero.headline}<span className="accent">{strings.hero.headlineAccent}</span></h1>
+                    <p className="lead">{strings.hero.lead}</p>
                     <div className="hero-ctas">
-                        <a className="btn-primary" href="tel:+3548600938">
+                        <a className="btn-primary" href={business.phoneHref}>
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-                            Hringja núna
+                            {strings.hero.ctaPrimary}
                         </a>
-                        <a className="btn-secondary" href={`${PUBLIC_HOSTNAME}#services`}>Skoða þjónustu</a>
+                        <a className="btn-secondary" href={`${PUBLIC_HOSTNAME}#services`}>{strings.hero.ctaSecondary}</a>
                     </div>
                     <div className="trust-strip">
-                        <div className="trust-item"><div className="num">24/7</div><div className="label">Neyðarþjónusta allan sólarhringinn</div></div>
+                        <div className="trust-item"><div className="num">{strings.hero.trustNumber}</div><div className="label">{strings.hero.trustLabel}</div></div>
                     </div>
                 </div>
                 <div className="hero-schematic" aria-hidden="true">
