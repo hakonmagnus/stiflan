@@ -14,13 +14,13 @@
 
 export const analytics = {
     // Google Analytics 4 — Admin > Data Streams > Web > Measurement ID (starts with "G-")
-    googleAnalyticsId: "G-286EHV642N", // TODO e.g. "G-XXXXXXXXXX"
+    googleAnalyticsId: "G-286EHV642N",
 
     // Any other gtag.js-based tags to load alongside GA4 (Google Ads conversion IDs, etc.)
-    googleTagIds: [] as string[], // TODO e.g. ["AW-XXXXXXXXX"]
+    googleTagIds: [] as string[],
 
     // Google Tag Manager container ID (starts with "GTM-") — see the note above.
-    //googleTagManagerId: "GTM-TSR2GF99", // TODO e.g. "GTM-XXXXXXX"
+    googleTagManagerId: "",
 
     // Vefheilsa.is gives either a <script src="..."> tag or an inline <script>...</script> snippet.
     vefheilsa: {
