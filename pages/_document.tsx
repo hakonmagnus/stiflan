@@ -1,16 +1,11 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-
-const PUBLIC_HOSTNAME = process.env.NEXT_PUBLIC_HOSTNAME || "/";
+import { PUBLIC_HOSTNAME } from '../content/site-content'
 
 export default function Document() {
   return (
     <Html>
       <Head>
-        <meta name="description" content="Stíflu og myndavélaþjónustan sér um stífluhreinsun, myndavélaskoðun, pípuhreinsun og lagnaviðhald á höfuðborgarsvæðinu. Hringdu núna — við svörum allan sólarhringinn." />
-        <meta property="og:title" content="Stíflu og myndavélaþjónustan — Stíflur, Myndarnir og Lagnahreinsun" />
-        <meta property="og:description" content="Stífluhreinsun, myndavélaskoðun og lagnaviðhald á höfuðborgarsvæðinu. Sama dags þjónusta." />
-        <meta property="og:image" content={`${PUBLIC_HOSTNAME}/images/og-image.jpg`} />
-        <meta property="og:url" content={PUBLIC_HOSTNAME} />
+        {/* Per-page <title>, description, and OG/Twitter tags are set in components/Layout.tsx via content/site-content.ts */}
         <link rel="apple-touch-icon" sizes="57x57" href={`${PUBLIC_HOSTNAME}/apple-icon-57x57.png`} />
         <link rel="apple-touch-icon" sizes="60x60" href={`${PUBLIC_HOSTNAME}/apple-icon-60x60.png`} />
         <link rel="apple-touch-icon" sizes="72x72" href={`${PUBLIC_HOSTNAME}/apple-icon-72x72.png`} />

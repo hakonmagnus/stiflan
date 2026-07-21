@@ -1,6 +1,5 @@
 import React from 'react';
-
-const PUBLIC_HOSTNAME = process.env.NEXT_PUBLIC_HOSTNAME || "";
+import { strings, images, business, PUBLIC_HOSTNAME } from "../content/site-content";
 
 const Footer: React.FC = () => {
     return (
@@ -8,27 +7,27 @@ const Footer: React.FC = () => {
             <div className="wrap">
                 <div className="footer-grid">
                     <div>
-                        <a href={PUBLIC_HOSTNAME} className="footer-logo-link" aria-label="Hringja í 860-0938">
-                            <img className="footer-logo-img" src={`${PUBLIC_HOSTNAME}/images/logo-footer-transp.png`} alt="Stíflu og myndavélaþjónustan — sími 860-0938" />
+                        <a href={PUBLIC_HOSTNAME} className="footer-logo-link" aria-label={strings.footer.callAriaLabel}>
+                            <img className="footer-logo-img" src={`${PUBLIC_HOSTNAME}${images.footerLogo.url}`} alt={images.footerLogo.alt} />
                         </a>
-                        <p>Stífluhreinsun, myndavélaskoðun og lagnaviðhald á höfuðborgarsvæðinu.</p>
+                        <p>{strings.footer.tagline}</p>
                     </div>
                     <div>
-                        <h4>Þjónusta</h4>
-                        <a href={`${PUBLIC_HOSTNAME}#services`}>Stífluhreinsun</a>
-                        <a href={`${PUBLIC_HOSTNAME}#services`}>Myndavélaskoðun</a>
-                        <a href={`${PUBLIC_HOSTNAME}#services`}>Viðhaldssamningur</a>
+                        <h4>{strings.footer.servicesHeading}</h4>
+                        {strings.footer.serviceLinks.map((label) => (
+                            <a href={`${PUBLIC_HOSTNAME}#services`} key={label}>{label}</a>
+                        ))}
                     </div>
                     <div>
-                        <h4>Samband</h4>
-                        <a href="tel:+3548600938">Sími: 860-0938</a>
-                        <a href="mailto:info@stiflan.is">stiflan@stiflan.is</a>
-                        <a href={`${PUBLIC_HOSTNAME}#booking`}>Senda fyrirspurn</a>
+                        <h4>{strings.footer.contactHeading}</h4>
+                        <a href={business.phoneHref}>{strings.footer.phoneLabel}</a>
+                        <a href={`mailto:${business.email}`}>{business.email}</a>
+                        <a href={`${PUBLIC_HOSTNAME}#booking`}>{strings.footer.sendInquiry}</a>
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <span>© 2026 Stíflu og myndavélaþjónustan. Kt. 690307-0570. Allur réttur áskilinn.</span>
-                    <span>Höfuðborgarsvæðið &middot; Neyðarþjónusta allan sólarhringinn</span>
+                    <span>{strings.footer.copyright}</span>
+                    <span>{strings.footer.areaLabel}</span>
                 </div>
             </div>
         </footer>
