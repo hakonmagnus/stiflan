@@ -19,6 +19,27 @@
         max-width: 420px;
     }
 
+    .booking-map {
+        width: 100%;
+        height: 260px;
+        margin-top: 28px;
+        border: 1px solid variables.$line-dark;
+        border-radius: variables.$radius-card;
+        display: block;
+    }
+
+    .booking-map-link {
+        display: inline-block;
+        margin-top: 12px;
+        font-size: 0.9rem;
+        color: variables.$copper-light;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     .booking-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;

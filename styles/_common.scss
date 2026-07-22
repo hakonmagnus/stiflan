@@ -41,6 +41,24 @@ button {
     outline-offset: 3px;
 }
 
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 1000;
+    background: variables.$copper;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: variables.$radius-pill;
+    text-decoration: none;
+    font-weight: 600;
+    transition: top 0.2s ease;
+
+    &:focus {
+        top: 12px;
+    }
+}
+
 .wrap {
     max-width: variables.$maxw;
     margin: 0 auto;

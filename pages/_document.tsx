@@ -1,11 +1,18 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import { PUBLIC_HOSTNAME } from '../content/site-content'
+import { PUBLIC_HOSTNAME, business } from '../content/site-content'
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="is">
       <Head>
         {/* Per-page <title>, description, and OG/Twitter tags are set in components/Layout.tsx via content/site-content.ts */}
+        {/* Geo-location meta tags — coordinates match localBusinessSchema in content/schema.ts */}
+        <meta name="geo.region" content="IS" />
+        <meta name="geo.placename" content="Höfuðborgarsvæðið" />
+        <meta name="geo.position" content={`${business.geo.latitude};${business.geo.longitude}`} />
+        <meta name="ICBM" content={`${business.geo.latitude}, ${business.geo.longitude}`} />
+        {/* Google Search Console verification — paste your token in place of the placeholder below (Search Console → Settings → Ownership verification → HTML tag) */}
+        {/* <meta name="google-site-verification" content="PASTE_TOKEN_HERE" /> */}
         <link rel="apple-touch-icon" sizes="57x57" href={`${PUBLIC_HOSTNAME}/apple-icon-57x57.png`} />
         <link rel="apple-touch-icon" sizes="60x60" href={`${PUBLIC_HOSTNAME}/apple-icon-60x60.png`} />
         <link rel="apple-touch-icon" sizes="72x72" href={`${PUBLIC_HOSTNAME}/apple-icon-72x72.png`} />

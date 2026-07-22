@@ -1,0 +1,28 @@
+@use './variables';
+
+.about {
+    background: variables.$paper;
+    color: variables.$text-dark;
+
+    .about-wrap {
+        max-width: 760px;
+
+        .eyebrow {
+            color: variables.$brand-blue;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        p {
+            font-size: 1.06rem;
+            line-height: 1.7;
+            opacity: 0.88;
+            margin: 0 0 16px;
+        }
+    }
+}

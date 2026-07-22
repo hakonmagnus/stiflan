@@ -1,0 +1,42 @@
+# robots.txt for stiflan.is
+User-agent: *
+Allow: /
+
+# AI / LLM crawlers — explicitly welcomed for AI answer citations
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://stiflan.is/sitemap.xml
+
+# LLM-readable metadata
+# See: https://stiflan.is/llms.txt
