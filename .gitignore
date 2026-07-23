@@ -32,3 +32,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude code — local/personal settings (keep launch.json tracked)
+.claude/settings.local.json

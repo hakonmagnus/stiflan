@@ -7,7 +7,17 @@
  * drops them, so nothing invalid gets published until you fill them in.
  */
 
-import { business, images, strings, PUBLIC_HOSTNAME } from "./site-content";
+import { business, images, strings, socialLinks, pagesMeta, PUBLIC_HOSTNAME } from "./site-content";
+
+// Shared NAP (Name / Address / Phone) — reused by both Organization and
+// LocalBusiness so the two nodes can never drift apart.
+const postalAddress = {
+    "@type": "PostalAddress",
+    streetAddress: business.address.street,
+    addressLocality: business.address.locality,
+    postalCode: business.address.postalCode,
+    addressCountry: business.address.country,
+};
 
 // ---------------------------------------------------------------------------
 // Organization — the brand/entity itself.
@@ -20,11 +30,23 @@ export const organizationSchema = {
     logo: `${PUBLIC_HOSTNAME}${images.headerLogo.url}`,
     telephone: business.phoneHref.replace("tel:", ""),
     email: business.email,
+    address: postalAddress,
     taxID: business.kennitala,
-    sameAs: [
-        "https://www.facebook.com/p/Stíflu-og-myndavélaþjónustan-ehf-100083037016954/",
-        // "https://www.instagram.com/...", // TODO: add if/when you have one
-    ],
+    sameAs: socialLinks.map((s) => s.url),
+};
+
+// ---------------------------------------------------------------------------
+// WebSite — identifies the site itself. No SearchAction: the site has no
+// on-site search, and declaring one without a real search box would be
+// misleading structured data.
+// ---------------------------------------------------------------------------
+export const websiteSchema = {
+    "@type": "WebSite",
+    "@id": `${PUBLIC_HOSTNAME}/#website`,
+    url: PUBLIC_HOSTNAME || undefined,
+    name: business.name,
+    inLanguage: "is",
+    publisher: { "@id": `${PUBLIC_HOSTNAME}/#organization` },
 };
 
 // ---------------------------------------------------------------------------
@@ -34,7 +56,10 @@ export const organizationSchema = {
 const ALL_DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 export const localBusinessSchema = {
-    "@type": "HomeAndConstructionBusiness",
+    // HomeAndConstructionBusiness is a subtype of LocalBusiness; we list both
+    // so naive parsers that match the literal "LocalBusiness" string still
+    // recognise the NAP node.
+    "@type": ["HomeAndConstructionBusiness", "LocalBusiness"],
     "@id": `${PUBLIC_HOSTNAME}/#localbusiness`,
     name: business.name,
     image: `${PUBLIC_HOSTNAME}${images.ogImage.url}`,
@@ -42,19 +67,19 @@ export const localBusinessSchema = {
     telephone: business.phoneHref.replace("tel:", ""),
     email: business.email,
     priceRange: "$$",
-    address: {
-        "@type": "PostalAddress",
-        streetAddress: "Jófríðarstaðavegur 6",
-        addressLocality: "Hafnarfjörður", // matches postcode 220 — "areaServed" below covers the broader capital region
-        postalCode: "220",
-        addressCountry: "IS",
-    },
+    address: postalAddress,
     geo: {
         "@type": "GeoCoordinates",
-        latitude: 64.06267490983745,
-        longitude: -21.95440983824652,
+        latitude: business.geo.latitude,
+        longitude: business.geo.longitude,
     },
     areaServed: business.serviceArea,
+    sameAs: [business.google.cidUrl, ...socialLinks.map((s) => s.url)],
+    hasMap: business.google.cidUrl,
+    potentialAction: {
+        "@type": "ReviewAction",
+        target: business.google.writeReviewUrl,
+    },
     openingHoursSpecification: [
         {
             "@type": "OpeningHoursSpecification",
@@ -104,6 +129,40 @@ export const faqSchema = {
 };
 
 // ---------------------------------------------------------------------------
+// Privacy page — BreadcrumbList (now that the site has more than one page) and
+// a WebPage node describing the privacy policy itself.
+// ---------------------------------------------------------------------------
+export const privacyBreadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    "@id": `${PUBLIC_HOSTNAME}${pagesMeta.privacy.path}#breadcrumb`,
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Forsíða",
+            item: `${PUBLIC_HOSTNAME}/`,
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: strings.privacy.heading,
+            item: `${PUBLIC_HOSTNAME}${pagesMeta.privacy.path}`,
+        },
+    ],
+};
+
+export const privacyPageSchema = {
+    "@type": "WebPage",
+    "@id": `${PUBLIC_HOSTNAME}${pagesMeta.privacy.path}#webpage`,
+    url: `${PUBLIC_HOSTNAME}${pagesMeta.privacy.path}`,
+    name: pagesMeta.privacy.title,
+    description: pagesMeta.privacy.description,
+    inLanguage: "is",
+    isPartOf: { "@id": `${PUBLIC_HOSTNAME}/#website` },
+    about: { "@id": `${PUBLIC_HOSTNAME}/#organization` },
+};
+
+// ---------------------------------------------------------------------------
 // Per-page bundle of schema nodes, combined into one @graph by Layout.tsx.
 // Add a new key here when a new page/route is added (mirrors pagesMeta).
 // ---------------------------------------------------------------------------
@@ -111,8 +170,15 @@ export const schemasByPage = {
     home: [
         organizationSchema,
         localBusinessSchema,
+        websiteSchema,
         howToSchema,
         faqSchema,
+    ],
+    privacy: [
+        organizationSchema,
+        websiteSchema,
+        privacyBreadcrumbSchema,
+        privacyPageSchema,
     ],
 };
 

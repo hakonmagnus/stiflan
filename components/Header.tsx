@@ -23,13 +23,15 @@ const Header: React.FC = () => {
     return (
         <header id="header">
             <div className="header-inner">
-                <a href={PUBLIC_HOSTNAME} className="logo">
+                <a href={`${PUBLIC_HOSTNAME}/`} className="logo">
                     <img className="logo-icon" src={`${PUBLIC_HOSTNAME}${images.headerLogo.url}`} alt={images.headerLogo.alt} />
                 </a>
                 <nav className="main-nav">
-                    <a href={`${PUBLIC_HOSTNAME}#services`}>{strings.header.navServices}</a>
-                    <a href={`${PUBLIC_HOSTNAME}#process`}>{strings.header.navProcess}</a>
-                    <a href={`${PUBLIC_HOSTNAME}#booking`}>{strings.header.navContact}</a>
+                    <a href={`${PUBLIC_HOSTNAME}/#services`}>{strings.header.navServices}</a>
+                    <a href={`${PUBLIC_HOSTNAME}/#process`}>{strings.header.navProcess}</a>
+                    <a href={`${PUBLIC_HOSTNAME}/#about`}>{strings.header.navAbout}</a>
+                    <a href={`${PUBLIC_HOSTNAME}/#reviews`}>{strings.header.navReviews}</a>
+                    <a href={`${PUBLIC_HOSTNAME}/#booking`}>{strings.header.navContact}</a>
                 </nav>
                 <div className="header-actions">
                     <a className="call-btn" href={business.phoneHref}>
@@ -42,9 +44,11 @@ const Header: React.FC = () => {
                 </div>
             </div>
             <div className="mobile-panel" id="mobilePanel">
-                <a href={`${PUBLIC_HOSTNAME}#services`}>{strings.header.navServices}</a>
-                <a href={`${PUBLIC_HOSTNAME}#process`}>{strings.header.navProcess}</a>
-                <a href={`${PUBLIC_HOSTNAME}#booking`}>{strings.header.navContact}</a>
+                <a href={`${PUBLIC_HOSTNAME}/#services`}>{strings.header.navServices}</a>
+                <a href={`${PUBLIC_HOSTNAME}/#process`}>{strings.header.navProcess}</a>
+                <a href={`${PUBLIC_HOSTNAME}/#about`}>{strings.header.navAbout}</a>
+                <a href={`${PUBLIC_HOSTNAME}/#reviews`}>{strings.header.navReviews}</a>
+                <a href={`${PUBLIC_HOSTNAME}/#booking`}>{strings.header.navContact}</a>
                 <a href={`mailto:${business.email}`}>{strings.header.mobileEmailLabel}</a>
             </div>
         </header>

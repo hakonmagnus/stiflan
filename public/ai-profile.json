@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.org",
+  "name": "Stíflu og myndavélaþjónustan",
+  "type": "HomeAndConstructionBusiness",
+  "description": "Stífluhreinsun, lagnamyndun og lagnaviðhald fyrir lagnir og skólp á höfuðborgarsvæðinu. Neyðarþjónusta og útkall samdægurs, allan sólarhringinn.",
+  "url": "https://stiflan.is/",
+  "language": "is",
+  "identifiers": {
+    "kennitala": "690307-0570"
+  },
+  "contact": {
+    "telephone": "+3548600938",
+    "telephoneDisplay": "860-0938",
+    "email": "stiflan@stiflan.is"
+  },
+  "address": {
+    "streetAddress": "Ármúla 21",
+    "addressLocality": "Reykjavík",
+    "postalCode": "108",
+    "addressCountry": "IS"
+  },
+  "geo": {
+    "latitude": 64.13653629468484,
+    "longitude": -21.878446512219753
+  },
+  "map": "https://maps.app.goo.gl/EASWussnef8Xs5kh6",
+  "googleMapsCid": "https://www.google.com/maps?cid=13449748266225729812",
+  "googlePlaceId": "ChIJyTxCsqzPd0gRFIHPzskap7o",
+  "googleReviewUrl": "https://g.page/r/CRSBz87JGqe6EBM/review",
+  "googleWriteReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJyTxCsqzPd0gRFIHPzskap7o",
+  "areaServed": "Höfuðborgarsvæðið",
+  "openingHours": "24/7 — allan sólarhringinn, alla daga",
+  "services": [
+    "Stífluhreinsun",
+    "Lagnamyndun (myndavélaskoðun)",
+    "Lagnahreinsun",
+    "Árlegur viðhaldssamningur",
+    "PDF ástandsskýrsla",
+    "Skólpviðgerðir"
+  ],
+  "sameAs": [
+    "https://www.facebook.com/p/Stíflu-og-myndavélaþjónustan-ehf-100083037016954/"
+  ]
+}

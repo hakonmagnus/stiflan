@@ -25,6 +25,8 @@ const Layout: React.FC<LayoutProps> = ({ meta, schemas, children }) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="description" content={meta.description} />
                 <link rel="canonical" href={canonicalUrl} />
+                <link rel="alternate" hrefLang="is" href={canonicalUrl} />
+                <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={meta.ogTitle} />
                 <meta property="og:description" content={meta.ogDescription} />
@@ -38,6 +40,7 @@ const Layout: React.FC<LayoutProps> = ({ meta, schemas, children }) => {
                     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
                 )}
             </Head>
+            <a href="#main" className="skip-link">Fara í efni</a>
             <Header />
             <main id="main">
                 {children}

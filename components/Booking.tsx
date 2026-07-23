@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import { strings } from "../content/site-content";
+import { strings, business } from "../content/site-content";
 
 const EMAILJS_SERVICE_ID = 'service_f4y1134';
 const EMAILJS_TEMPLATE_ID = 'template_tcvc3xl';
@@ -45,6 +45,14 @@ const Booking: React.FC = () => {
                     <span className="eyebrow">{strings.booking.eyebrow}</span>
                     <h2>{strings.booking.heading}</h2>
                     <p>{strings.booking.intro}</p>
+                    <iframe
+                        className="booking-map"
+                        title="Staðsetning Stíflu og myndavélaþjónustunnar á korti"
+                        src="https://maps.google.com/maps?q=64.13653629468484,-21.878446512219753&z=15&output=embed"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <a className="booking-map-link" href={business.google.cidUrl} target="_blank" rel="noopener noreferrer">{strings.footer.mapLabel}</a>
                 </div>
                 <form className="booking-form reveal" id="bookingForm" onSubmit={handleSubmit}>
                     {!hasSubmitted && <>

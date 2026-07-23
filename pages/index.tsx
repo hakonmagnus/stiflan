@@ -4,6 +4,8 @@ import Hero from "../components/Hero";
 import EmergencyBanner from "../components/EmergencyBanner";
 import Services from "../components/Services";
 import Process from "../components/Process";
+import About from "../components/About";
+import Reviews from "../components/Reviews";
 import FAQ from "../components/FAQ";
 import FinalCTA from "../components/FinalCTA";
 import Booking from "../components/Booking";
@@ -32,6 +34,8 @@ const IndexPage: React.FC = () => {
             <EmergencyBanner />
             <Services />
             <Process />
+            <About />
+            <Reviews />
             <FAQ />
             <FinalCTA />
             <Booking />
